@@ -2,9 +2,11 @@ import WeatherDisplay from "./weatherDisplay";
 import CitySearch from "./SearchCity";
 import { useState, useEffect } from "react";
 import { BeatLoader } from "react-spinners";
+import { useContext } from "react";
+import { weatherDataContext } from "./context/weatherDataContext";
 
 export default function App() {
-  const [weatherData, setWeatherData] = useState(null);
+  const {weatherData,setWeatherData}=useContext(weatherDataContext)
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,12 +34,12 @@ export default function App() {
 
   const hideErrorAfterDelay = () => {
     setTimeout(() => {
-      setError(""); 
-    }, 5000);  
+      setError("");
+    }, 5000);
   };
 
   useEffect(() => {
-    fetchWeather("Addis Ababa");  
+    fetchWeather("Addis Ababa");
   }, []);
 
   return (
@@ -46,7 +48,7 @@ export default function App() {
         onSubmitChange={(e) => setSearch(e.target.value)}
         searchValue={search}
         onSubmitClick={() => {
-          if (search) fetchWeather(search);  
+          if (search) fetchWeather(search);
         }}
       />
 
@@ -58,13 +60,6 @@ export default function App() {
         </div>
       ) : weatherData ? (
         <WeatherDisplay
-          temp={weatherData?.main?.temp}
-          city={weatherData?.name}
-          cloudy={weatherData?.weather?.[0]?.description}
-          humidity={weatherData?.main?.humidity}
-          wind={weatherData?.wind?.speed}
-          icon={weatherData?.weather?.[0]?.icon}
-          WeatherName={weatherData?.weather?.[0]?.main}
         />
       ) : null}
     </div>
