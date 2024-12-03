@@ -1,0 +1,132 @@
+body {
+  /* background: linear-gradient(
+    to bottom right,
+    rgb(46, 46, 46),
+    rgb(172, 171, 171)
+  ); */
+  background: url(./assets/weather-bg.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.error-message {
+  background-color: #eb202070;
+  border-radius: 30px;
+  width: 20rem;
+  text-align: center;
+  padding: 0.5rem;
+  position: absolute;
+  top: 4.5rem;
+  left: 25%;
+  right: 35%;
+}
+
+.search-prompt {
+  text-align: center;
+  margin: 10rem;
+  font-size: 2rem;
+}
+
+.Search-bar {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  margin-top: 2rem;
+}
+#search-city {
+  margin-right: 1rem;
+  width: 40%;
+  height: 100%;
+  background: none;
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+  outline: none;
+  font-size: 90%;
+  color: white;
+  transition: background-color 0.5s, width 0.5s;
+}
+#search-city:focus {
+  width: 55%;
+  background-color: rgba(234, 236, 238, 0.205);
+}
+  #search-button {
+  background-color: rgb(214, 142, 84);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  width: 15%;
+  padding: 0.5rem;
+  border-radius: 30px;
+  transition: ease-in-out 200ms;
+}
+#search-button:hover {
+  background-color: rgb(218, 103, 9);
+}
+#search-button:active {
+  background-color: rgb(240, 169, 112);
+}
+.weather-dispaly {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+.time-city {
+  text-align: center;
+  border-radius: 20px;
+  width: 40%;
+  backdrop-filter: blur(15px) brightness(0.8);
+  border-radius: 30px;
+  padding: 2rem;
+}
+#city-name {
+  font-size: 2.5rem;
+}
+#curent-time {
+  font-size: 4rem;
+}
+
+.wether-detail {
+  border-radius: 20px;
+  backdrop-filter: blur(15px) brightness(0.8);
+  border-radius: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 40%;
+  padding: 2rem;
+}
+#tempreture {
+  font-size: 3rem;
+}
+
+.other-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+input::placeholder{
+  color: rgb(209, 206, 206);
+}
+
+@media (max-width: 1000px) {
+  .weather-dispaly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wether-detail {
+    width: 80%;
+    gap: 1em;
+  }
+  .time-city {
+    width: 80%;
+  }
+}
