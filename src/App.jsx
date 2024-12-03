@@ -1,13 +1,12 @@
 import WeatherDisplay from "./weatherDisplay";
 import CitySearch from "./SearchCity";
-import { useState, useEffect } from "react";
+import { useEffect,useState } from "react";
 import { BeatLoader } from "react-spinners";
 import { useContext } from "react";
 import { weatherDataContext } from "./context/weatherDataContext";
 
 export default function App() {
   const {weatherData,setWeatherData}=useContext(weatherDataContext)
-  const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -45,11 +44,7 @@ export default function App() {
   return (
     <div className="weather-body">
       <CitySearch
-        onSubmitChange={(e) => setSearch(e.target.value)}
-        searchValue={search}
-        onSubmitClick={() => {
-          if (search) fetchWeather(search);
-        }}
+        fetchWeatherProp={fetchWeather}
       />
 
       {error && <div className="error-message">{error}</div>}
@@ -62,6 +57,7 @@ export default function App() {
         <WeatherDisplay
         />
       ) : null}
+      
     </div>
   );
 }
